@@ -1,7 +1,7 @@
 local helpers = require "spec.helpers"
 
 
-local PLUGIN_NAME = "myplugin"
+local PLUGIN_NAME = "api-version"
 
 
 for _, strategy in helpers.all_strategies() do if strategy ~= "cassandra" then
@@ -79,9 +79,9 @@ for _, strategy in helpers.all_strategies() do if strategy ~= "cassandra" then
         -- validate that the request succeeded, response status 200
         assert.response(r).has.status(200)
         -- now check the response to have the header
-        local header_value = assert.response(r).has.header("bye-world")
+        local header_value = assert.response(r).has.header("Version")
         -- validate the value of that header
-        assert.equal("this is on the response", header_value)
+        assert.equal("0.1", header_value)
       end)
     end)
 

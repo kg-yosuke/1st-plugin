@@ -1,4 +1,4 @@
-local PLUGIN_NAME = "myplugin"
+local PLUGIN_NAME = "api-version"
 
 
 -- helper function to validate data against a schema
@@ -13,6 +13,14 @@ end
 
 
 describe(PLUGIN_NAME .. ": (schema)", function()
+
+  it("provides a default response_header", function()
+    local ok, err = validate({
+        request_header = "My-Request-Header", 
+        response_header = nil, }) 
+    assert.is_nil(err) 
+    assert.is_truthy(ok) 
+  end)
 
 
   it("accepts distinct request_header and response_header", function()

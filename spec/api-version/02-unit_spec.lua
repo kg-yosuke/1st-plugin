@@ -1,6 +1,6 @@
 -- local helpers = require "spec.helpers"
 
-local PLUGIN_NAME = "myplugin"
+local PLUGIN_NAME = "api-version"
 
 
 
@@ -58,7 +58,7 @@ describe(PLUGIN_NAME .. ": (unit)", function()
   it("gets a 'bye-world' header on a response", function()
     plugin:header_filter(config)
     assert.equal("bye-world", header_name)
-    assert.equal("this is on the response", header_value)
+    assert.equal("0.1", header_value)
   end)
 
 end)
